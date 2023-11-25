@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1> Каникулы - 1 июня 2024г </h1>
+</head>
+<body>
+    <form>
+        <label for="daysRemaining">До каникул осталось:</label>
+        <input type="text" id="daysRemaining" readonly>
+    </form>
+
+    <script>
+        function calculateDaysRemaining() {
+            const currentDate = new Date();
+            const targetDate = new Date("2024-06-01");
+            const daysRemaining = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
+            return daysRemaining;
+        }
+        function updateDaysRemaining() {
+            const daysRemaining = calculateDaysRemaining();
+            document.getElementById("daysRemaining").value = daysRemaining;
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            updateDaysRemaining();
+
+            setInterval(updateDaysRemaining, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Вычислительная машина</title>
+  <link rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="mathematique">
+        <button onclick="showResult()">Посчитать</button>
+    </div>
+
+    <script>
+        function showResult() {
+            const num1 = parseFloat(prompt("Укажите первое число:"));
+            const num2 = parseFloat(prompt("Укажите второе число:"));
+            const operator = prompt("Укажите математическую операцию: +, -, *, /");
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Ошибка: Не указаны значения.');
+            } else if (operator === null) {
+                alert('Отмена');
+            } else {
+                let result;
+                switch (operator) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        if (num2 === 0) {
+                            alert('Делить на ноль запрещено!');
+                            return;
+                        }
+                        result = num1 / num2;
+                        break;
+                    default:
+                        alert('Ошибка: Несуществующая математическая операция');
+                        return;
+                }
+                alert(`Результат: ${num1} ${operator} ${num2} = ${result}`);
+            }
+        }
+    </script>
+</body>
+</html>

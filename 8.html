@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" >
+  <style>
+	h1 {color:red;}
+	body {background-color:PaleGreen; font-weight:bold;}
+	input {font-weight:bold;}  
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Расстояние от точки до начала координат</h1>
+    <form id="coordinates-form">
+      <label for="x-coordinate">X:</label>
+      <input id="x-coordinate">
+      <label for="y-coordinate">Y:</label>
+      <input id="y-coordinate">
+      <button type="button" id="calculate-button">Расстояние</button>
+    </form>
+    <p id="result"></p>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("coordinates-form");
+      const result = document.getElementById("result");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+      });
+
+      const calculateButton = document.getElementById("calculate-button");
+      calculateButton.addEventListener("click", function() {
+        const x = parseFloat(document.getElementById("x-coordinate").value);
+        const y = parseFloat(document.getElementById("y-coordinate").value);
+
+        if (!isNaN(x) && !isNaN(y)) {
+          const distance = Math.sqrt(x * x + y * y);
+          result.textContent = `Расстояние от начала координат: ${distance.toFixed(2)}`;
+        } else {
+          result.textContent = "Введите корректные координаты.";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

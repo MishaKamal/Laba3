@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Информация о транспортных средствах</title>
+    <style>
+        body {
+            background-color:papayawhip; /* Цвет фона */
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Продаются транспортные средства
+    </h1>
+    <div class="car">
+        <img src="../images/car1.png" alt="Car 1" align="left">
+    </div>
+    <div class="car">
+        <img src="../images/car2.jpg" alt="Car 2" align="left">
+    </div>
+    <div class="car">
+        <img src="../images/car3.png" alt="Car 3" align="left">
+    </div>
+    <div class="car">
+        <img src="../images/image3.png" alt="Elephant" align="left">
+    </div>
+    
+    <div class="form">
+        <input type="text" id="carInfo" placeholder="Информация о транспортных средствах" readonly size="50" style="position: absolute; top: 300px; left: 140px;">
+    </div>
+
+    <script>
+        const cars = document.querySelectorAll('.car');
+        const carInfoInput = document.getElementById('carInfo');
+        
+        cars.forEach((car, index) => {
+            car.addEventListener('mouseover', () => {
+                let carInfo = '';
+                if (index === 0) {
+                    carInfo = 'УАЗ, Цена: 1.950.000 руб';
+                } else if (index === 1) {
+                    carInfo = 'KIA, Цена: 3.650.000 руб';
+                } else if (index === 2) {
+                    carInfo = 'Mercedes-Benz, Цена: 7.430.000 руб';
+                } else if (index === 3) {
+                    carInfo = 'Слон прогулочный, Цена: 25кг фруктов/час';
+                }
+                carInfoInput.value = carInfo;
+            });
+            
+            car.addEventListener('mouseout', () => {
+                carInfoInput.value = '';
+            });
+        });
+    </script>
+</body>
+</html>

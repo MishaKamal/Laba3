@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор сказок</title>
+    <link rel="stylesheet" type="text/css">
+    <style>
+	h1 {color:red;}
+	body {background-color:PaleGreen; font-weight:bold;}
+	input {font-weight:bold;}  
+    </style>
+</head>
+<body>
+    <h1>Генератор сказок</h1>
+    <form id="storyForm">
+        <table>
+            <tr>
+                <td><label for="hero-name">Имя героя</label></td>
+                <td><input type="text" id="hero-name" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="hero-activity">Любимое занятие</label></td>
+                <td><input type="text" id="hero-activity" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="hero-friend">Имя друга героя</label></td>
+                <td><input type="text" id="hero-friend" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="hero-gift">Любимый подарок</label></td>
+                <td><input type="text" id="hero-gift" required></td>
+            </tr>
+        </table>
+
+        <input type="button" value="Сгенерировать сказку" onclick="generateStory()">
+    </form>
+
+    <script>
+        function generateStory() {
+            var heroName = document.getElementById("hero-name").value;
+            var heroActivity = document.getElementById("hero-activity").value;
+            var heroFriend = document.getElementById("hero-friend").value;
+            var heroGift = document.getElementById("hero-gift").value;
+
+            var storyText = `В одном лесу жила маленькая ${heroName}, которая очень любила ${heroActivity}. У нее так хорошо получалось, что весь лес собирался послушать ее! От подруги она узнала, что у людей принято дарить ${heroGift} любимым исполнителям. А ${heroGift} она любила также сильно, как и ${heroActivity}. И однажды, после конценрта, ${heroFriend} подлетел к ${heroName} и подарил...${heroGift}! Уж он то был истинным джентельменом! ${heroName} была невероятно счастлива!!!`;
+		
+	    var name_ = `${heroName}`;
+	    var gift_ = `${heroGift}`;
+            var storyWindow = window.open("", "Сказка", "width=600, height=400");
+            storyWindow.document.write("<html><head><title>Сказка о " + name_ + " и " + gift_ + "</title></head><body>");
+            storyWindow.document.write("<h1>Сказка о " + name_ + " и " + gift_ + "</h1>");
+            storyWindow.document.write("<p>" + storyText + "</p>");
+            storyWindow.document.write("</body></html>");
+        }
+    </script>
+</body>
+</html>

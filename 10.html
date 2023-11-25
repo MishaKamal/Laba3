@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            text-align: left; 
+            margin: 20px; 
+        }
+
+        form {
+            text-align: left; 
+            margin: 0; 
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        #result {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function calculateArea() {
+            // Получаем значения длины и ширины прямоугольника из полей ввода
+            var length = parseFloat(document.getElementById("length").value);
+            var width = parseFloat(document.getElementById("width").value);
+
+            var area = length * width;
+
+            var resultWindow = window.open("", "Результат", "width=300,height=100");
+            resultWindow.document.write("<h1>Площадь прямоугольника</h1>");
+            resultWindow.document.write("Площадь: " + area);
+        }
+    </script>
+</head>
+<body>
+    <h1>Вычисление площади прямоугольника</h1>
+    <form>
+        <label for="length">Длина составляет:</label>
+        <input type="text" id="length" /><br>
+        <label for="width">Ширина составляет:</label>
+        <input type="text" id="width" /><br>
+        <input type="button" value="Вычислить площадь" onclick="calculateArea()" />
+    </form>
+</body>
+</html>

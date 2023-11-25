@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{width:200;height:200}
+    </style>
+    <script>
+        i=0; 
+        function Show() 
+        { 
+            ris = new Array('../images/car1.png', '../images/car2.jpg', '../images/car3.png');             
+            if (i >= 3)   i = 0;  
+            r=document.getElementById('show')           
+            r.src=ris[i];   
+            i++; 
+        }
+    </script>
+</head>
+<body>
+    <h1> слайд-шоу </h1>
+    <img id='show' />
+    <form>
+        <input type="button" value=" Начать " onClick="Show() ;">
+    </form>
+</body>
+    

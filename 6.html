@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Текущая дата</title>
+</head>
+<body>
+    <p id="DateOfToday"></p>
+
+    <script>
+        var Months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+        var WeekDayName= ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+
+        var current = new Date();
+
+        var WeekDayName = WeekDayName[current.getDay()];
+        var Day = current.getDate();
+        var Month = Months[current.getMonth()];
+        var Year = current.getFullYear();
+
+        
+        var DateOfTodayStr = 'Сегодня ' + Day + ' ' + Month + ' ' + Year + ' года '+ WeekDayName;
+
+        document.getElementById("DateOfToday").textContent = DateOfTodayStr;
+    </script>
+</body>
+</html>

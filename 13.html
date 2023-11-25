@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета</title>
+    <link rel="stylesheet" type="text/css">
+    <style>
+	h1 {color:red;}
+	body {background-color:PaleGreen; font-weight:bold;}
+	input {font-weight:bold;}  
+    </style>
+</head>
+<body>
+    <h1>Анкета</h1>
+    <form id="fioForm">
+        <table>
+            <tr>
+                <td><label for="surname">Фамилия</label></td>
+                <td><input type="text" id="surname" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="firstname">Имя</label></td>
+                <td><input type="text" id="firstname" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="otchestvo">Отчество</label></td>
+                <td><input type="text" id="otchestvo" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="birthYear">Год рождения</label></td>
+                <td><input type="text" id="birthYear" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="birthPlace">Место рождения (город)</label></td>
+                <td><input type="text" id="birthPlace" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="Like">Любимое занятие</label></td>
+                <td><input type="text" id="Like" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="Dislike">Нелюбимое занятие</label></td>
+                <td><input type="text" id="Dislike" required></td>
+            </tr>
+        </table>
+
+        <input type="button" value="Сформировать биографию" onclick="Biography()">
+    </form>
+
+    <script>
+        function Biography() {
+            var surname = document.getElementById("surname").value;
+            var firstname = document.getElementById("firstname").value;
+            var otchestvo = document.getElementById("otchestvo").value;
+            var birthYear = document.getElementById("birthYear").value;
+            var birthPlace = document.getElementById("birthPlace").value;
+            var Like = document.getElementById("Like").value;
+            var Dislike = document.getElementById("Dislike").value;
+
+            var fioText = `Я, ${surname} ${firstname} ${otchestvo}, родился в ${birthYear} году в городе ${birthPlace}. Больше всего я люблю ${Like} и очень не люблю ${Dislike}. Было бы замечательно, всю жизнь только ${Like}, но к сожалению приходится иногда и ${Dislike}.`;
+
+            var fioWindow = window.open("", "Биография", "width=600, height=250");
+            fioWindow.document.write("<html><head><style>h1 {color:green;}body {background-color:papayawhip; font-weight:bold;}</style><title>О себе</title></head><body>");
+            fioWindow.document.write("<h1>О себе</h1>");
+            fioWindow.document.write("<p>" + fioText + "</p>");
+            fioWindow.document.write("</body></html>");
+        }
+    </script>
+</body>
+</html>

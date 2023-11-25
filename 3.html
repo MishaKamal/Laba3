@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Животные</title>
+  <link rel="stylesheet" type="text/css" href="/css/3.css" media="screen">
+  <h1><b>Наведите курсор</b></h1>
+  <style>
+	body {background-color:lightcyan;}
+    </style>
+</head>
+<body>
+  <table class="outer-table">
+    <tr>
+      <td onmouseover="showImage('racoon');" onmouseout="hideImage('racoon')">Енот</td>
+      <td class="image-cell" rowspan="3">
+        <img id="racoon" class="hidden" src="../images/image1.png" alt="Енот">
+        <img id="rabbit" class="tigr" src="../images/image2.png" alt="Кролик">
+        <img id="elephant" class="hidden" src="../images/image3.png" alt="Слон">
+      </td>
+    </tr>
+    <tr>
+      <td onmouseover="showImage('rabbit');" onmouseout="hideImage('rabbit')">Кролик</td>
+    </tr>
+    <tr>
+      <td onmouseover="showImage('elephant');" onmouseout="hideImage('elephant')">Слон</td>
+    </tr>
+  </table>
+
+  <script>
+    function showImage(id) {
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function hideImage(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
